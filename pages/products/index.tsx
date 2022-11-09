@@ -11,10 +11,11 @@ const postProduct = async () => {
     body: null,
   });
 };
-const TodoApp = () => {
+const Products = () => {
   const {data: products} = useSWR(productsEndpoint, fetcher, {
     refreshInterval: 1000,
   });
+
   const handleAdd = async () => {
     await postProduct();
   };
@@ -40,4 +41,4 @@ const TodoApp = () => {
     </div>
   );
 };
-export default TodoApp;
+export default Products;

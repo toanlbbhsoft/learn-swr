@@ -3,7 +3,9 @@ import useSWR from 'swr';
 import userFetcher from '../libs/api-user';
 
 export default function useUser() {
-  const {data, mutate, error} = useSWR('api_user', userFetcher);
+  const {data, mutate, error} = useSWR('api_user', userFetcher, {
+    revalidateOnFocus: true,
+  });
 
   const loading = !data && !error;
   const loggedOut = error && error.status === 403;
